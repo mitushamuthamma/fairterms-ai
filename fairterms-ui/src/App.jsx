@@ -11,8 +11,8 @@ export default function App() {
     setLoading(true);
 
     try {
-      const res = await fetch("https://fairterms-ai.onrender.com/analyze", {
-        method: "POST",
+      const res = await fetch("https://fairterms-ai.onrender.com/api/analyze", {
+        method: "POST", 
         headers: {
           "Content-Type": "application/json"
         },
