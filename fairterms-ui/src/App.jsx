@@ -52,12 +52,8 @@ export default function App() {
   const normalizedRadius = radius - stroke * 2;
   const circumference = normalizedRadius * 2 * Math.PI;
 
-  let score = result?.fairness_score || 0;
-
-// ✅ FIX SCALE (THIS IS THE ONLY THING YOU NEED)
-if (score <= 10) {
-  score = score * 10;
-}
+  // ✅ Correct score assignment without multiplying
+const score = Math.max(0, Math.min(100, Number(result?.fairness_score) || 0));
   const strokeDashoffset =
     circumference - (score / 100) * circumference;
 
